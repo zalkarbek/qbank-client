@@ -10,5 +10,9 @@ class UserApi extends BaseApi {
       params: { id }
     })
   }
+
+  isTrueLocalUser (user) {
+
+  }
 }
 export { UserApi }

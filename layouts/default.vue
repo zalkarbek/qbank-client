@@ -16,7 +16,7 @@ import Footer from '@/layouts/part/footer'
 import Sidebar from '@/layouts/part/sidebar'
 
 export default {
-  // middleware: ['auth'],
+  middleware: ['authLocal'],
   loading: true,
   components: {
     'app-header': Header,
