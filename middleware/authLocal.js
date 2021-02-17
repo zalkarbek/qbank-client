@@ -1,17 +1,18 @@
-export default ({ app, store, redirect }) => {
+export default async ({ app, store, redirect }) => {
   const token = localStorage.getItem('token')
   const user = JSON.parse(token)
   if (!user) {
     return redirect('/login', { redirectType: 'no-auth' })
   }
-  if (user && user.login && !store.state.logged) {
+  if (user && user.login) {
     const userApi = app.$api.getApi('userApi')
-    if (userApi.isTrueLocalUser(user)) {
-      store.dispatch('auth/setToken', { token })
-      store.dispatch('user/setCurrentUser', { user })
+    if (userApi.localUserCompare(user)) {
+      await store.dispatch('auth/setTokenLocal', { token: JSON.stringify(user) })
+      await store.dispatch('user/setCurrentUser', { user })
       return true
     }
+  } else {
+    await store.dispatch('auth/logoutLocal')
+    return redirect('/login')
   }
-  store.dispatch('auth/logout')
-  return redirect('/login')
 }

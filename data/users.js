@@ -2,19 +2,19 @@ export default [
   {
     name_u: 'Админ',
     login: 'admin',
-    password: 'RSKBank2017',
+    password: '1',
     roles: ['admin']
   },
   {
     name_u: 'Медиа Менеджер',
     login: 'media',
-    password: 'RSKBank2017',
+    password: '1',
     roles: ['media']
   },
   {
     name_u: 'Аналитик',
     login: 'manager',
-    password: 'RSKBank2017',
+    password: '1',
     roles: ['manager']
   }
 ]

@@ -115,6 +115,11 @@ export default {
     view: 'Просмотр профиля',
     delete: 'Удалить профиль'
   },
+  placeholder: {
+    enterEmail: 'Введите email',
+    enterLogin: 'Введите Логин',
+    enterPassword: 'Введите пароль'
+  },
   require: {
     title: 'Требуется',
     email: 'Пожалуйста введите email',

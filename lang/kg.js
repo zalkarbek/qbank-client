@@ -65,6 +65,7 @@ export default {
   },
   placeholder: {
     enterEmail: 'Введите email',
+    enterLogin: 'Введите Логин',
     enterPassword: 'Введите пароль'
   },
   require: {

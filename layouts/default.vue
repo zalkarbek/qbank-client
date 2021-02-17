@@ -34,9 +34,6 @@ export default {
     this.$nextTick(() => {
       this.$nuxt.$loading.start()
       setTimeout(() => this.$nuxt.$loading.finish(), 3000)
-      // this.$store.dispatch('toast/toastSuccess', {
-      //   message: 'hello world'
-      // })
     })
   },
   head () {
