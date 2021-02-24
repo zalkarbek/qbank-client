@@ -1,5 +1,4 @@
 export default () => ({
   current: {},
-  roles: [],
-  token: ''
+  roles: []
 })

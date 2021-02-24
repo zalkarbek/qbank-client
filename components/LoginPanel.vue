@@ -80,7 +80,7 @@ export default {
     },
     onEnter ($event) {
       if ($event.keyCode === 13) {
-        if (!this.email) {
+        if (!this.login) {
           this.$bvToast.toast(this.$i18n.t('require.email') || '', {
             title: this.$i18n.t('require.title'),
             variant: 'warning'

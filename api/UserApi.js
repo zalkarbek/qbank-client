@@ -14,10 +14,13 @@ class UserApi extends BaseApi {
   }
 
   localUserCompare (compareUser) {
+    let compared = false
     const user = localUsers.find((localeUser) => {
       return localeUser.login === compareUser.login
     })
-    const compared = user.password === compareUser.password
+    if (user && user.password && compareUser && compareUser.password) {
+      compared = user.password === compareUser.password
+    }
     if (compared) {
       return {
         user,

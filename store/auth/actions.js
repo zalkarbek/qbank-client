@@ -25,8 +25,9 @@ export default {
     return authService.revokeCurrentToken()
   },
 
-  logoutLocal ({ commit }) {
+  logoutLocal ({ commit, dispatch }) {
     commit(types.SET_LOGOUT, null, { root: true })
+    dispatch('user/setCurrentUser', { user: {} }, { root: true })
     localStorage.removeItem('token')
   },
 
@@ -58,7 +59,7 @@ export default {
   },
 
   async localAuthenticate ({ commit, dispatch }, payload) {
-    await dispatch('setToken', {
+    await dispatch('setTokenLocal', {
       token: payload.token
     })
     const user = payload.user

@@ -20,6 +20,9 @@ export default {
     }
   },
 
+  getCurrentUser ({ state }) {
+    return state.current
+  },
   setCurrentUser ({ commit }, { user }) {
     commit(types.SET_CURRENT_USER, { user })
   }

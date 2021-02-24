@@ -8,7 +8,7 @@
       @onLogin="login"
     >
       <template v-slot:title>
-        РСК Банк<i class="fal fa-registered" />
+        РСК Банк Электронная очередь QCEO
       </template>
       <template v-slot:description>
         Авторизация

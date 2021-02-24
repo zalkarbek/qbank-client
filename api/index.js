@@ -116,6 +116,7 @@ class ApiFactory {
     type = 'Bearer',
     scopes = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
   ) {
+    console.log('SET_TOKEN')
     this._tokenConfig = { token, type, scopes }
     this._token = token
     this.context.$axios.setToken(token, type, scopes)
