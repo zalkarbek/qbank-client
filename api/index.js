@@ -13,12 +13,16 @@ import { TurnApi } from '@/api/TurnApi'
 import { DateApi } from '@/api/DateApi'
 import { AdsApi } from '@/api/AdsApi'
 import { TvTabloApi } from '@/api/TvTabloApi'
+import { TerminalApi } from '~/api/TerminalApi'
 
 class ApiFactory {
   constructor (context) {
     this.crud = context.store.state.crud
     this.context = context
     this.apiServices = {
+      terminalApi: new TerminalApi(context, {
+        apiUrl: 'terminal'
+      }),
       tvTabloApi: new TvTabloApi(context, {
         apiUrl: 'tvtablos'
       }),

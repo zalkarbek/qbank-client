@@ -39,6 +39,19 @@
           @keyup="onEnter"
         >
       </div>
+      <div class="form-group">
+        <div class="d-flex justify-content-between mg-b-5">
+          <label class="mg-b-0-f">
+            Филиал
+          </label>
+        </div>
+        <b-form-select
+          :options="departmentAddressLists"
+          value-field="value"
+          text-field="name"
+          @input="onSelectedDepartmentAddress"
+        />
+      </div>
       <div class="form-group tx-12">
         Строго <strong class="text-danger">не рекомендуется</strong>
         сохранять пароль у браузера
@@ -71,12 +84,35 @@ export default {
   data () {
     return {
       login: '',
-      password: ''
+      password: '',
+      departmentAddressLists: [],
+      currentDepartment: null
     }
   },
+  mounted () {
+    this.getDepartmentAddress()
+  },
   methods: {
+    onSelectedDepartmentAddress (departmentAddress) {
+      this.currentDepartment = departmentAddress
+    },
+    async getDepartmentAddress () {
+      const terminalApi = this.$api.getApi('terminalApi')
+      const response = await terminalApi.getDepartmentAddress()
+      const departmentAddressLists = this.$lo.toArray((response && response.data && response.data.departmentAddressLists) || [])
+      departmentAddressLists.forEach((departmentAddress) => {
+        this.departmentAddressLists.push({
+          ...departmentAddress,
+          value: { ...departmentAddress }
+        })
+      })
+    },
     auth () {
-      this.$emit('onLogin', { login: this.login, password: this.password })
+      this.$emit('onLogin', {
+        login: this.login,
+        password: this.password,
+        currentDepartment: this.currentDepartment
+      })
     },
     onEnter ($event) {
       if ($event.keyCode === 13) {
@@ -94,7 +130,7 @@ export default {
           })
           return
         }
-        this.$emit('onLogin', { login: this.login, password: this.password })
+        this.auth()
       }
     }
   }

@@ -16,5 +16,10 @@ export default {
   setCurrentLocale ({ commit }, { locale }) {
     localStorage.setItem('currentLocale', locale)
     commit(types.SET_CURRENT_LOCALE, { locale })
+  },
+  async setCurrentDepartment ({ commit }, { department }) {
+    const terminalApi = this.$api.getApi('terminalApi')
+    await terminalApi.setDepartmentDB(department.key)
+    commit(types.SET_CURRENT_DEPARTMENT, { department })
   }
 }

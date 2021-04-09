@@ -45,6 +45,7 @@ export default {
             user: data.user,
             token: data.token
           })
+          await this.$store.dispatch('setCurrentDepartment', { department: payload.currentDepartment })
           await this.$router.push(this.localePath({ name: 'index' }))
         } else {
           this.$bvToast.toast(this.$i18n.t('error.authWrong') || '', {

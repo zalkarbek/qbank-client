@@ -2,7 +2,8 @@ import {
   SET_CURRENT_LOCALE,
   SET_LOGIN,
   SET_LOGOUT,
-  SET_SOCKET
+  SET_SOCKET,
+  SET_CURRENT_DEPARTMENT
 } from '~/store/types'
 
 export default {
@@ -19,5 +20,9 @@ export default {
   },
   [SET_SOCKET] (state, { socks }) {
     state.socks = socks
+  },
+
+  [SET_CURRENT_DEPARTMENT] (state, { department }) {
+    state.currentDepartment = department
   }
 }

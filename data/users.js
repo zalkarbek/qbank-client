@@ -2,25 +2,25 @@ export default [
   {
     name: 'Админ',
     login: 'admin',
-    password: 'Admin2021#123#',
+    password: 'admin2021#',
     roles: ['admin']
   },
   {
     name: 'Медиа Менеджер',
     login: 'media',
-    password: 'RSKBank2021Media',
+    password: 'media2021#',
     roles: ['media']
   },
   {
     name: 'Аналитик',
     login: 'manager',
-    password: 'RSKBank2021Manager',
+    password: 'manager2021#',
     roles: ['manager']
   },
   {
     name: 'Директор',
     login: 'director',
-    password: 'RSKBank2021Director',
+    password: 'director2021#',
     roles: ['director']
   }
 ]
